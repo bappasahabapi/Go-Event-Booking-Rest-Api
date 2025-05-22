@@ -1,0 +1,12 @@
+###
+GET http://localhost:8080/events
+
+
+###
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+	"title": "New Event",
+	"date": "2023-10-10"
+}
