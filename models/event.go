@@ -1,0 +1,23 @@
+package models
+
+import "time"
+
+type Event struct {
+	ID          int64     `json:"id"`
+	Name        string    `json:"name" binding:"required"`
+	Description string    `json:"description" binding:"required"`
+	Location    string    `json:"location" binding:"required"`
+	DateTime    time.Time `json:"date_time" binding:"required"`
+	UserID      int       `json:"user_id"`
+}
+
+var events = []Event{} // event obj er array
+
+func (newEvent Event) SaveEvent() {
+	events = append(events, newEvent)
+}
+
+func GetAllEvents() []Event {
+	print(events)
+	return events
+}

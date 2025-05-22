@@ -6,4 +6,4 @@
 ### Steps:
 
 -  `go mod init bappa.com/rest`
-- `go get -u github.com/gin-gonic/gin`
+-  `go get -u github.com/gin-gonic/gin`
