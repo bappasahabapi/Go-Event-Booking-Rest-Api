@@ -4,13 +4,15 @@ import (
 	"fmt"
 	"net/http"
 
+	"bappa.com/rest/db"
 	"bappa.com/rest/models"
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
 
-	var server = gin.Default()
+	db.InitDB() // first start the database
+	var server = gin.Default() //start the server
 
 	server.GET("/events",getEvents)
 	server.POST("/events",createEvent)
