@@ -5,15 +5,15 @@
 
 ### Steps:
 
-✅ 01-project initialized with server and gin framework <b/>
+✅ 01-project initialized with server and gin framework 
 
 -  `go mod init bappa.com/rest`
 -  `go get -u github.com/gin-gonic/gin`
 
-✅ 02-Add and Test Create and Get event <b/>
+✅ 02-Add and Test Create and Get event 
 
 
-✅ 03-Initilazation of SQL Database <b/>
+✅ 03-Initilazation of SQL Database 
 
  -`https://github.com/mattn/go-sqlite3`
     - `go get github.com/mattn/go-sqlite3`
@@ -38,3 +38,4 @@ func InitDB() {
     createTables()
 }
 ```
+✅ 04-Insert & Read Data from Database
