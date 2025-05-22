@@ -39,3 +39,15 @@ func InitDB() {
 }
 ```
 ✅ 04-Insert & Read Data from Database
+
+
+
+💡🌟🔆 05-Beautify console and json data
+
+- `go get github.com/fatih/color`
+
+- use like this
+
+import ("github.com/fatih/color")
+
+color.Cyan("🔋 🚀 Server running at http://localhost:8080")
