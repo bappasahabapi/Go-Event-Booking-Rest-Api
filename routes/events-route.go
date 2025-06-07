@@ -2,6 +2,7 @@ package routes
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 	"strconv"
 
@@ -26,8 +27,8 @@ func getEvents(context *gin.Context) {
 	context.JSON(http.StatusOK, events)
 }
 
-func getEvent(context *gin.Context){
-	eventId,err := strconv.ParseInt(context.Param("id"),10,64) 
+func getEvent(context *gin.Context) {
+	eventId, err := strconv.ParseInt(context.Param("id"), 10, 64)
 
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{
@@ -36,11 +37,11 @@ func getEvent(context *gin.Context){
 		return // other wise below code will not executed
 	}
 
-	event,err := models.GetEventById(eventId)
+	event, err := models.GetEventById(eventId)
 
 	if err != nil {
-		context.JSON(http.StatusInternalServerError,gin.H{
-			"message" : "Could not fetch event",
+		context.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Could not fetch event",
 		})
 		return
 	}
@@ -49,7 +50,7 @@ func getEvent(context *gin.Context){
 	jsonOutput, _ := json.MarshalIndent(event, "", "  ")
 	color.Green("📦 Retrieved Events:\n%s", string(jsonOutput))
 
-	context.JSON(http.StatusOK,event)
+	context.JSON(http.StatusOK, event)
 }
 
 func createEvent(context *gin.Context) {
@@ -63,7 +64,7 @@ func createEvent(context *gin.Context) {
 		return
 	}
 
-	event.ID = 1     //dummy value
+	event.ID = 1    //dummy value
 	event.UserID = 1 //dummy value
 
 	//save event
@@ -82,4 +83,58 @@ func createEvent(context *gin.Context) {
 		"message": "✅ Event Created Successfully",
 		"event":   event,
 	})
+}
+
+func updateEvent(context *gin.Context) {
+	eventId, err := strconv.ParseInt(context.Param("id"), 10, 64)
+
+
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{
+			"message": "Could not parse event id",
+		})
+		return // other wise below code will not executed
+	}
+
+	_, err= models.GetEventById(eventId)
+
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Could not fetch the  event",
+		})
+		return
+	}
+
+	var updatedEvent models.Event
+	err = context.ShouldBindJSON(&updatedEvent)
+
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{
+			"message": "Could not parse the request data",
+		})
+		return
+	}
+
+	updatedEvent.ID=eventId
+	err=updatedEvent.Update()
+
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Could not update event",
+		})
+		return // other wise below code will not executed
+	}
+	log.Printf("🛠 Updating event ID %d with: %+v", eventId, updatedEvent)
+
+
+	//also send a response for success case
+	context.JSON(http.StatusOK, gin.H{
+		"message": "✅ Event Updated Successfully",
+		"event":   updatedEvent,
+	})
+
+
+
+
+
 }
