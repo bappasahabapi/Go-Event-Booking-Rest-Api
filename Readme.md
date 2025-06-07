@@ -1,3 +1,20 @@
+## Tech Stack:
+- Backend: Golang +Gin Framework
+- Database: sqlite
+- Frontend: React (upcomming...)
+
+## Features: 
+- Basic CRUD
+- JWT Authentication
+- Input Validation
+
+Output:
+
+![Event-Api](BookingApi.jpeg)
+
+
+
+
 ## All Install Packages:
 
 -  `go mod init bappa.com/rest`
