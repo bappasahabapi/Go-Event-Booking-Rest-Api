@@ -1,3 +1,7 @@
+Output:
+
+![Event-Api](BookingApi.jpeg)
+
 ## Tech Stack:
 - Backend: Golang +Gin Framework
 - Database: sqlite
@@ -14,9 +18,7 @@ Basic:
 - If err != nil, it means: "something went wrong", and you can check err.Error() to see what happened.
 - So, nil is just Go’s way of saying “there was no error.” You check for non-nil to handle problems.
 
-Output:
 
-![Event-Api](BookingApi.jpeg)
 
 
 
