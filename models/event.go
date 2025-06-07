@@ -1,7 +1,6 @@
 package models
 
 import (
-
 	"log"
 	"time"
 
@@ -19,7 +18,6 @@ type Event struct {
 }
 
 var events = []Event{} // event obj er array
-
 
 // func Save(e Event) error {
 func (e Event) Save() error {
@@ -70,10 +68,22 @@ func GetAllEvents() ([]Event, error) {
 		events = append(events, event)
 	}
 
-
 	log.Printf("📦 Retrieved %d events: %+v\n", len(events), events)
 
-
-
 	return events, err
+}
+
+func GetEventById(id int64) (*Event, error) {
+	query := "SELECT * FROM events WHERE id =?"
+	row := db.DB.QueryRow(query, id)
+
+	var event Event
+	err := row.Scan(&event.ID, &event.Name, &event.Description, &event.Location, &event.DateTime, &event.UserID)
+
+	if err != nil {
+		return nil, err
+	}
+	log.Printf("🎯 Retrieved event with ID %d: %+v\n", id, event)
+	return &event,nil
+	
 }
