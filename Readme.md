@@ -8,6 +8,12 @@
 - JWT Authentication
 - Input Validation
 
+Basic: 
+
+- If err == nil, it means: "everything went fine"
+- If err != nil, it means: "something went wrong", and you can check err.Error() to see what happened.
+- So, nil is just Go’s way of saying “there was no error.” You check for non-nil to handle problems.
+
 Output:
 
 ![Event-Api](BookingApi.jpeg)

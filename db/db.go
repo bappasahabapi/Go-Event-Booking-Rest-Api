@@ -26,7 +26,7 @@ func createTables() {
 	createEventsTable := `
 	CREATE TABLE IF NOT EXISTS events (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		name INTEGER NOT NULL,
+		name TEXT NOT NULL,
 		description TEXT NOT NULL,
 		location TEXT NOT NULL,
 		date_time DATETIME NOT NULL,

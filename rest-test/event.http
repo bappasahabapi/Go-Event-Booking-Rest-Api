@@ -1,0 +1,13 @@
+GET http://localhost:8080/events
+
+
+###
+POST http://localhost:8080/events
+Content-Type: application/json
+
+{
+	"name": "Test-1",
+	"description": "Test Description-1",
+	"location":"Dhaka,Bangladesh",
+	"date_time":"2025-05-01T15:30:00.00Z"
+}
