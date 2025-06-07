@@ -1,5 +1,7 @@
 package models
 
+// Here all services added
+
 import (
 	"log"
 	"time"
@@ -112,4 +114,17 @@ func (event Event) Update ()error{
 	return err
 
 
+}
+
+
+func (event Event) Delete()error{
+	query :="DELETE FROM events WHERE id =?"
+	prepareStatement,err:=db.DB.Prepare(query)
+
+	if err !=nil {return err} 
+
+	defer prepareStatement.Close()
+	_,err =prepareStatement.Exec(event.ID)
+	return err
+	
 }

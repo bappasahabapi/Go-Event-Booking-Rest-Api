@@ -3,6 +3,9 @@ GET http://localhost:8080/events
 ###
 GET http://localhost:8080/events/3
 
+###
+DELETE  http://localhost:8080/events/5
+
 
 ###
 POST http://localhost:8080/events

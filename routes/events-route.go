@@ -2,7 +2,6 @@ package routes
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 	"strconv"
 
@@ -124,7 +123,11 @@ func updateEvent(context *gin.Context) {
 		})
 		return // other wise below code will not executed
 	}
-	log.Printf("🛠 Updating event ID %d with: %+v", eventId, updatedEvent)
+	// log.Printf("🛠 Updating event ID %d with: %+v", eventId, updatedEvent)
+
+	// Convert events to pretty JSON
+	jsonOutput, _ := json.MarshalIndent(updatedEvent, "", "  ")
+	color.Green("📦 Retrieved Events:\n%s", string(jsonOutput))
 
 
 	//also send a response for success case
@@ -132,9 +135,37 @@ func updateEvent(context *gin.Context) {
 		"message": "✅ Event Updated Successfully",
 		"event":   updatedEvent,
 	})
+}
 
+func deleteEvent(context *gin.Context){
+	eventId, err := strconv.ParseInt(context.Param("id"), 10, 64)
 
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{
+			"message": "Could not parse event id",
+		})
+		return // other wise below code will not executed
+	}
 
+	event, err := models.GetEventById(eventId)
 
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Could not fetch the  event",
+		})
+		return
+	}
 
+	err=event.Delete()
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{
+			"message": "Could not delte the event",
+		})
+		return // other wise below code will not executed
+	}
+
+	//also send a response for success case
+	context.JSON(http.StatusOK, gin.H{
+		"message": "✅ Event Deleted Successfully",
+	})
 }
