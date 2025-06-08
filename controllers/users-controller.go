@@ -5,6 +5,7 @@ import (
 
 	"bappa.com/rest/models"
 	"bappa.com/rest/services"
+	"bappa.com/rest/utils"
 	"github.com/gin-gonic/gin"
 )
 
@@ -86,10 +87,20 @@ func Login(context *gin.Context){
 		return
 	}
 
+	//after valided the user generate a web token
+	token, err:=utils.GenerateToken(user.Email, user.ID)
+	if err !=nil {
+		context.JSON(http.StatusInternalServerError,gin.H{
+			"message":"Could not authenticate the user for valid token",
+		})
+		return
+	}
+
+
 	//valid user
 	context.JSON(http.StatusCreated, gin.H{
 		"message": "✅ User Logged in Successfully",
-		"event":   user,
+		"token":   token,
 	})
 
 }

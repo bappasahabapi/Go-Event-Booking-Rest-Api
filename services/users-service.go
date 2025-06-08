@@ -34,19 +34,19 @@ func SaveUser (user *models.User) error{
 
 
 func ValidateCredentials(user *models.User)error{
-	query :=`SELECT password FROM users WHERE email=?`
+	query :=`SELECT id,password FROM users WHERE email=?`
 
 	row:=db.DB.QueryRow(query,user.Email)
 
 	var retrivedPassword string
-	err:=row.Scan(&retrivedPassword)
-	if err != nil {return errors.New("Credentials are not valid")}
+	err:=row.Scan(&user.ID,&retrivedPassword)
+	if err != nil {return errors.New("credentials are not valid")}
 
 	//compare password
 	passwordIsValid :=utils.ComparePassword(user.Password,retrivedPassword)
 
 	if !passwordIsValid {
-		return errors.New("Credentials are not valid")
+		return errors.New("credentials are not valid")
 	}
 
 	return nil; //valid

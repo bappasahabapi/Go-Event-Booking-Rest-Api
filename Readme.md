@@ -49,6 +49,8 @@ Event-Booking-app/
 -  `go get github.com/mattn/go-sqlite3`
 - `go get github.com/fatih/color`  for color the console
 - `go install github.com/gravityblast/fresh@latest` for auto restart
+- `go get golang.org/x/crypto` bcrypt for hash password
+- `go get -u github.com/golang-jwt/jwt/v5` JWT
 
 
 ## Run the server
@@ -155,4 +157,5 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 - [X] 14. Create Hash Password signup user.
     - https://pkg.go.dev/golang.org/x/crypto/bcrypt
     - `go get golang.org/x/crypto`
-
+- [X] 15. valided user with finished the login functionality
+- [X] 16. Generate JWT
