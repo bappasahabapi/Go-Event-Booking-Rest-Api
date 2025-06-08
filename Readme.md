@@ -11,6 +11,7 @@ Output:
 - Basic CRUD
 - JWT Authentication
 - Input Validation
+- MVC 
 
 Basic: 
 
@@ -39,6 +40,8 @@ Basic:
 
 
 ### Steps:
+
+Events:
 
 ✅ 01-project initialized with server and gin framework 
 
@@ -115,3 +118,15 @@ import ("github.com/fatih/color")
 color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 
 ✅ 06-Add git ignore files
+
+✅ 07-update readme
+
+✅ 08-Get event by Id done
+
+✅ 09-Refctoring code and route for scalability and maintalibility
+
+✅ 10-Update route added
+
+--- 
+
+🧖
