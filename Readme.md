@@ -20,7 +20,23 @@ Basic:
 - So, nil is just Go’s way of saying “there was no error.” You check for non-nil to handle problems.
 
 
-
+Event-Booking-app/
+│
+├── controllers/
+│   └── item_controller.go
+│
+├── models/
+│   └── item.go
+│
+├── routes/
+│   └── item_routes.go
+│
+├── config/
+│   └── db.go
+│
+├── main.go
+│
+└── go.mod
 
 
 
