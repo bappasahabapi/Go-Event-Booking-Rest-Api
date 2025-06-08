@@ -9,6 +9,7 @@ Output:
 
 ## Features: 
 - Basic CRUD
+- Hash Password
 - JWT Authentication
 - Input Validation
 - MVC 
@@ -149,3 +150,7 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 
 - [X] Create routes for the users.
 - [X] First create the users table and make a connection with events table.
+- [X] Write the route, controller,service,model for signup user.
+- [X] Create Hash Password signup user.
+    - https://pkg.go.dev/golang.org/x/crypto/bcrypt
+    - `go get golang.org/x/crypto`

@@ -3,6 +3,7 @@ package services
 import (
 	"bappa.com/rest/db"
 	"bappa.com/rest/models"
+	"bappa.com/rest/utils"
 )
 
 func SaveUser (user *models.User) error{
@@ -15,7 +16,11 @@ func SaveUser (user *models.User) error{
 
 	defer stmt.Close()
 
-	result,err:=stmt.Exec(user.Email,user.Password)
+	hashedPassowrd,err :=utils.HashPassword(user.Password)
+	if err != nil {return err}
+
+	// result,err:=stmt.Exec(user.Email,user.Password)
+	result,err:=stmt.Exec(user.Email,hashedPassowrd)
 	if err != nil {return err}
 
 	userId,err :=result.LastInsertId()
