@@ -159,3 +159,5 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
     - `go get golang.org/x/crypto`
 - [X] 15. valided user with finished the login functionality
 - [X] 16. Generate JWT
+- [X] 17. Adding Token Varification [complex part]
+- [X] 17. Now implement route protection

@@ -1,20 +1,21 @@
 ###
 GET http://localhost:8080/events
 ###
-GET http://localhost:8080/events/3
+GET http://localhost:8080/events/5
 
 ###
-DELETE  http://localhost:8080/events/3
+DELETE  http://localhost:8080/events/4
 
 
-###
+### 
 POST http://localhost:8080/events
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5Mzg5NTM4LCJ1c2VySWQiOjF9.UcB42a8wf1LUWIWjV5s-lZ3Ebfzq08AHFrNX-JiHrfk
 
 {
-	"name": "Delete-Case-2",
-	"description": "Test Description-1",
-	"location":"Dhaka,Bangladesh",
+	"name": "Test-3",
+	"description": "Test Description-3",
+	"location":"Chittogram,Bangladesh",
 	"date_time":"2025-05-01T15:30:00.00Z"
 }
 

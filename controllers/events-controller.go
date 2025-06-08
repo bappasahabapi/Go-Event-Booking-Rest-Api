@@ -6,9 +6,10 @@ import (
 	"strconv"
 
 	"bappa.com/rest/models"
+	"bappa.com/rest/services"
+	"bappa.com/rest/utils"
 	"github.com/fatih/color"
 	"github.com/gin-gonic/gin"
-	"bappa.com/rest/services"
 )
 
 func GetEvents(context *gin.Context) {
@@ -57,15 +58,23 @@ func GetEvent(context *gin.Context) {
 func CreateEvent(context *gin.Context) {
 
 	 token := context.Request.Header.Get("Authorization")
+
 	 if token ==""{
 		context.JSON(http.StatusUnauthorized,gin.H{"message":"Not Authorized"})
 		return // so that below code is not excuated
 	 }
 
-	
+	 //if token is failed to varify
+	err:=utils.VarifyToken(token)
+	if err != nil {
+		context.JSON(http.StatusUnauthorized, gin.H{
+			"message": "Not Authorized",
+		})
+		return
+	}
 
 	var event models.Event
-	err := context.ShouldBindJSON(&event)
+	err = context.ShouldBindJSON(&event)
 
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{
