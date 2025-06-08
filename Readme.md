@@ -2,6 +2,7 @@ Output:
 
 ![Event-Api](BookingApi.jpeg)
 
+
 ## Tech Stack:
 - Backend: Golang +Gin Framework
 - Database: sqlite
@@ -151,6 +152,7 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 - [X] Create routes for the users.
 - [X] First create the users table and make a connection with events table.
 - [X] Write the route, controller,service,model for signup user.
-- [X] Create Hash Password signup user.
+- [X] 14. Create Hash Password signup user.
     - https://pkg.go.dev/golang.org/x/crypto/bcrypt
     - `go get golang.org/x/crypto`
+

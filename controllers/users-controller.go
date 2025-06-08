@@ -62,3 +62,34 @@ func __Signup(context *gin.Context) {
 		"user":    user,
 	})
 }
+
+func Login(context *gin.Context){
+	var user models.User
+	// println("User",&user)
+	err:=context.ShouldBindJSON(&user)
+
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{
+			"message": "Could not parse the request data",
+		})
+		return
+	}
+
+
+	//validate
+	err =services.ValidateCredentials(&user)
+	if err !=nil {
+		context.JSON(http.StatusUnauthorized,gin.H{
+			"message":"Could not authenticate the user",
+			// "message":err.Error(),
+		})
+		return
+	}
+
+	//valid user
+	context.JSON(http.StatusCreated, gin.H{
+		"message": "✅ User Logged in Successfully",
+		"event":   user,
+	})
+
+}

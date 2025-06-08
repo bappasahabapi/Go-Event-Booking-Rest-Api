@@ -1,6 +1,8 @@
 package services
 
 import (
+	"errors"
+
 	"bappa.com/rest/db"
 	"bappa.com/rest/models"
 	"bappa.com/rest/utils"
@@ -27,5 +29,27 @@ func SaveUser (user *models.User) error{
 	user.ID =userId
 
 	return err
+
+}
+
+
+func ValidateCredentials(user *models.User)error{
+	query :=`SELECT password FROM users WHERE email=?`
+
+	row:=db.DB.QueryRow(query,user.Email)
+
+	var retrivedPassword string
+	err:=row.Scan(&retrivedPassword)
+	if err != nil {return errors.New("Credentials are not valid")}
+
+	//compare password
+	passwordIsValid :=utils.ComparePassword(user.Password,retrivedPassword)
+
+	if !passwordIsValid {
+		return errors.New("Credentials are not valid")
+	}
+
+	return nil; //valid
+
 
 }

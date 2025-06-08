@@ -19,6 +19,7 @@ func  RegisterRoute(server *gin.Engine)  {
 
 	//users
 	server.POST("/signup",controllers.Signup)
+	server.POST("/login",controllers.Login)
 
 	// server.GET("/events", getEvents)
 	// server.GET("/events/:id",getEvent) 
