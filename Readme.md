@@ -145,4 +145,7 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 
 --- 
 
-🧖
+🧖 Users: 13-Commit
+
+- [X] Create routes for the users.
+- [X] First create the users table and make a connection with events table.

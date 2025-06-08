@@ -11,13 +11,14 @@ func  RegisterRoute(server *gin.Engine)  {
 
 	//root: http://localhost:8080
 	//event routes
-	server.GET("/events", controller.GetEvents)
-	server.GET("/events/:id",controller.GetEvent) 
-	server.POST("/events", controller.CreateEvent)
-	server.PUT("/events/:id", controller.UpdateEvent)
-	server.DELETE("/events/:id", controller.DeleteEvent)
+	server.GET("/events", controllers.GetEvents)
+	server.GET("/events/:id",controllers.GetEvent) 
+	server.POST("/events", controllers.CreateEvent)
+	server.PUT("/events/:id", controllers.UpdateEvent)
+	server.DELETE("/events/:id", controllers.DeleteEvent)
 
-	server.POST("/signup")
+	//users
+	server.POST("/signup",controllers.Signup)
 
 	// server.GET("/events", getEvents)
 	// server.GET("/events/:id",getEvent) 
