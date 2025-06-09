@@ -1,0 +1,68 @@
+# 1st sign up a new user
+# login the new user
+# create event after paste the token get form login
+
+
+#✅ 01: User Creation and Login -----------------------------------
+
+# Signup as a new user 
+POST http://localhost:8080/signup
+Content-Type: application/json
+
+{
+	"email": "test@gmail.com",
+	"password": "12345"
+}
+
+### Login 
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+	"email": "test@gmail.com",
+	"password": "12345"
+}
+
+#✅ 02 Event Creation by user -----------------------------------
+
+### Create event 
+POST http://localhost:8080/events
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDY0NzMyLCJ1c2VySWQiOjF9.4mlTxr6g6Ke9LA0dTzz6K3QZXYrlO-uc-qD7YiijLGw
+
+{
+	"name": "Test-Event",
+	"description": "Test Description",
+	"location":"Chittogram,Bangladesh",
+	"date_time":"2025-05-01T15:30:00.00Z"
+}
+
+
+### Get all the events for all users
+GET http://localhost:8080/events
+
+### GEt specific event
+GET http://localhost:8080/events/3
+
+### Update Event test2 token
+PUT http://localhost:8080/events/4
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDU3MDIxLCJ1c2VySWQiOjF9.CCGBwlLm92xQSgC1cAMpLyX5eCmhqsWN44LC-s9btqA
+
+# test2 token
+
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsImV4cCI6MTc0OTQ2MDI2NCwidXNlcklkIjoyfQ.DpO3dUpNUmdi8FImLDyMZ4kyQhrOejIWL5rP3TR-RaA
+
+### Delete event who create the event only 
+DELETE  http://localhost:8080/events/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDU3MDIxLCJ1c2VySWQiOjF9.CCGBwlLm92xQSgC1cAMpLyX5eCmhqsWN44LC-s9btqA
+
+
+#✅ 03: Registration -----------------------------------
+
+POST http://localhost:8080/events/1/register
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDY0NzMyLCJ1c2VySWQiOjF9.4mlTxr6g6Ke9LA0dTzz6K3QZXYrlO-uc-qD7YiijLGw
+
+###
+DELETE  http://localhost:8080/events/1/register
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDY0NzMyLCJ1c2VySWQiOjF9.4mlTxr6g6Ke9LA0dTzz6K3QZXYrlO-uc-qD7YiijLGw
