@@ -1,2 +1,6 @@
 POST http://localhost:8080/events/1/register
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDYzNjg1LCJ1c2VySWQiOjF9.4uGoIqSfW3yUhEn-N9AvreedBvucLJRqQ06edi5GkqI
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDY0NzMyLCJ1c2VySWQiOjF9.4mlTxr6g6Ke9LA0dTzz6K3QZXYrlO-uc-qD7YiijLGw
+
+###
+DELETE  http://localhost:8080/events/1/register
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDY0NzMyLCJ1c2VySWQiOjF9.4mlTxr6g6Ke9LA0dTzz6K3QZXYrlO-uc-qD7YiijLGw

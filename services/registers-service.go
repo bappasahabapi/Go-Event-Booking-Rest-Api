@@ -26,3 +26,19 @@ func RegisterEvent(userId int64, e models.Event) error {
 
 	return err
 }
+
+func CancelRegistration(userId int64, e models.Event) error {
+   query := `DELETE FROM registrations WHERE event_id =? AND user_id =?`
+
+	prepareStatement, err := db.DB.Prepare(query)
+
+	if err != nil {
+		return err
+	}
+
+	defer prepareStatement.Close()
+
+	_, err = prepareStatement.Exec(e.ID,userId)
+	return err
+}
+
