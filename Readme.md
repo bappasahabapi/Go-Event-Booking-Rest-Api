@@ -24,6 +24,7 @@ Basic:
 - So, nil is just Go’s way of saying “there was no error.” You check for non-nil to handle problems.
 
 
+```shell
 Event-Booking-app/
 │
 ├── routes/             `[working on routes]`
@@ -44,6 +45,10 @@ Event-Booking-app/
 ├── main.go
 │
 └── go.mod
+
+
+
+```
 
 
 
@@ -173,3 +178,6 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 - [X] 18. Now implement route protection
 - [X] 19. Retrieving & Storing User and Event IDs
 - [X] 22. Adding Authorization To Restrict Users From Editing & Deleting
+
+
+✅ **Registration Route : 23-Commit :**
