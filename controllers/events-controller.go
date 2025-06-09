@@ -65,7 +65,7 @@ func CreateEvent(context *gin.Context) {
 	 }
 
 	 //if token is failed to varify
-	err:=utils.VarifyToken(token)
+	userId,err:=utils.VarifyToken(token)
 	if err != nil {
 		context.JSON(http.StatusUnauthorized, gin.H{
 			"message": "Not Authorized",
@@ -83,8 +83,8 @@ func CreateEvent(context *gin.Context) {
 		return
 	}
 
-	event.ID = 1    //dummy value
-	event.UserID = 1 //dummy value
+	// event.ID = 1    //dummy value
+	event.UserID = userId //dummy value
 
 	//save event
 	// err =models.Save(event)  // if use func Save(e Event){...})

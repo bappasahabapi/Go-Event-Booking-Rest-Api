@@ -160,4 +160,5 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 - [X] 15. valided user with finished the login functionality
 - [X] 16. Generate JWT
 - [X] 17. Adding Token Varification [complex part]
-- [X] 17. Now implement route protection
+- [X] 18. Now implement route protection
+- [X] 19. Retrieving & Storing User and Event IDs
