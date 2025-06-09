@@ -4,6 +4,7 @@ package routes
 
 import (
 	"bappa.com/rest/controllers"
+	"bappa.com/rest/middlewares"
 	"github.com/gin-gonic/gin"
 )
 
@@ -13,7 +14,7 @@ func  RegisterRoute(server *gin.Engine)  {
 	//event routes
 	server.GET("/events", controllers.GetEvents)
 	server.GET("/events/:id",controllers.GetEvent) 
-	server.POST("/events", controllers.CreateEvent)
+	server.POST("/events",middlewares.Authenticate, controllers.CreateEvent)
 	server.PUT("/events/:id", controllers.UpdateEvent)
 	server.DELETE("/events/:id", controllers.DeleteEvent)
 

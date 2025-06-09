@@ -162,3 +162,6 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 - [X] 17. Adding Token Varification [complex part]
 - [X] 18. Now implement route protection
 - [X] 19. Retrieving & Storing User and Event IDs
+
+
+✅  Middleware : 20-Commit :

@@ -7,7 +7,7 @@ import (
 
 	"bappa.com/rest/models"
 	"bappa.com/rest/services"
-	"bappa.com/rest/utils"
+	// "bappa.com/rest/utils"
 	"github.com/fatih/color"
 	"github.com/gin-gonic/gin"
 )
@@ -57,24 +57,9 @@ func GetEvent(context *gin.Context) {
 
 func CreateEvent(context *gin.Context) {
 
-	 token := context.Request.Header.Get("Authorization")
-
-	 if token ==""{
-		context.JSON(http.StatusUnauthorized,gin.H{"message":"Not Authorized"})
-		return // so that below code is not excuated
-	 }
-
-	 //if token is failed to varify
-	userId,err:=utils.VarifyToken(token)
-	if err != nil {
-		context.JSON(http.StatusUnauthorized, gin.H{
-			"message": "Not Authorized",
-		})
-		return
-	}
 
 	var event models.Event
-	err = context.ShouldBindJSON(&event)
+	err := context.ShouldBindJSON(&event)
 
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{
@@ -82,13 +67,12 @@ func CreateEvent(context *gin.Context) {
 		})
 		return
 	}
+	userId := context.GetInt64("userId") //as we make available in context 
 
-	// event.ID = 1    //dummy value
 	event.UserID = userId //dummy value
 
 	//save event
 	// err =models.Save(event)  // if use func Save(e Event){...})
-	// err = event.Save() // if use func(e Event) Save(){...}  // receiver function
 	// err = event.Save() // if use func(e Event) Save(){...}  // receiver function
 
 	err = services.SaveEvent(&event)
