@@ -14,6 +14,8 @@ Output:
 - JWT Authentication
 - Input Validation
 - MVC 
+- Authorization User
+- Middleware Interation
 
 Basic: 
 
@@ -162,6 +164,7 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 - [X] 17. Adding Token Varification [complex part]
 - [X] 18. Now implement route protection
 - [X] 19. Retrieving & Storing User and Event IDs
+- [X] 22. Adding Authorization To Restrict Users From Editing & Deleting
 
 
 ✅  Middleware : 20-Commit :

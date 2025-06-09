@@ -8,7 +8,7 @@ DELETE  http://localhost:8080/events/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDU3MDIxLCJ1c2VySWQiOjF9.CCGBwlLm92xQSgC1cAMpLyX5eCmhqsWN44LC-s9btqA
 
 
-### 
+### test token
 POST http://localhost:8080/events
 Content-Type: application/json
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDU3MDIxLCJ1c2VySWQiOjF9.CCGBwlLm92xQSgC1cAMpLyX5eCmhqsWN44LC-s9btqA
@@ -21,9 +21,14 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwu
 }
 
 
-###
+### test2 token
 PUT http://localhost:8080/events/4
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDU3MDIxLCJ1c2VySWQiOjF9.CCGBwlLm92xQSgC1cAMpLyX5eCmhqsWN44LC-s9btqA
+
+# test2 token
+
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGdtYWlsLmNvbSIsImV4cCI6MTc0OTQ2MDI2NCwidXNlcklkIjoyfQ.DpO3dUpNUmdi8FImLDyMZ4kyQhrOejIWL5rP3TR-RaA
 
 {
 	"name": "Updated",
