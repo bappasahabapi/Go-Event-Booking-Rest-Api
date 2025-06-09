@@ -26,14 +26,17 @@ Basic:
 
 Event-Booking-app/
 │
-├── controllers/
-│   └── item_controller.go
+├── routes/             `[working on routes]`
+│   └── item-routes.go
 │
-├── models/
-│   └── item.go
+├── controllers/ `[working on request and response]`
+│   └── item-controller.go 
 │
-├── routes/
-│   └── item_routes.go
+├── models/            `[working on type struct and interface]`
+│   └── item-model.go
+│
+├── services/        `[working on database query]`
+│   └── item-services.go
 │
 ├── config/
 │   └── db.go
@@ -63,17 +66,17 @@ Event-Booking-app/
 
 ### Steps:
 
-Events:
+✅  **Events**:
 
-✅ 01-project initialized with server and gin framework 
+- [X] 01-project initialized with server and gin framework 
 
 -  `go mod init bappa.com/rest`
 -  `go get -u github.com/gin-gonic/gin`
 
-✅ 02-Add and Test Create and Get event 
+- [X] 02-Add and Test Create and Get event 
 
 
-✅ 03-Initilazation of SQL Database 
+- [X]03-Initilazation of SQL Database 
 
  -`https://github.com/mattn/go-sqlite3`
     - `go get github.com/mattn/go-sqlite3`
@@ -98,7 +101,7 @@ func InitDB() {
     createTables()
 }
 ```
-✅ 04-Insert & Read Data from Database
+- [X] 04-Insert & Read Data from Database
 
 Preparing Statements vs Directly Executing Queries `(Prepare() vs Exec()/Query())`
 
@@ -129,7 +132,7 @@ And, indeed, in this application, we are calling stmt.Close() directly after cal
 💡 But in order to show you the different ways of using the sql package,I decided to also include this preparation approach in this project 
 
 
-✅  05-Beautify console and json data 🔆
+- [X]  05-Beautify console and json data 🔆
 
 - `go get github.com/fatih/color`
 
@@ -139,19 +142,19 @@ import ("github.com/fatih/color")
 
 color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 
-✅ 06-Add git ignore files
+- [X] 06-Add git ignore files
 
-✅ 07-update readme
+- [X] 07-update readme
 
-✅ 08-Get event by Id done
+- [X]08-Get event by Id done
 
-✅ 09-Refctoring code and route for scalability and maintalibility
+- [X]09-Refctoring code and route for scalability and maintalibility
 
-✅ 10-Update route added
+- [X] 10-Update route added
 
 --- 
 
-🧖 Users: 13-Commit
+✅  **Users: 13-Commit**
 
 - [X] Create routes for the users.
 - [X] First create the users table and make a connection with events table.
@@ -162,9 +165,11 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 - [X] 15. valided user with finished the login functionality
 - [X] 16. Generate JWT
 - [X] 17. Adding Token Varification [complex part]
+
+
+
+✅ **Middleware : 20-Commit :**
+
 - [X] 18. Now implement route protection
 - [X] 19. Retrieving & Storing User and Event IDs
 - [X] 22. Adding Authorization To Restrict Users From Editing & Deleting
-
-
-✅  Middleware : 20-Commit :
