@@ -112,3 +112,4 @@ func DeleteEvent(event *models.Event) error {
 	_, err = prepareStatement.Exec(event.ID)
 	return err
 }
+

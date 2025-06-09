@@ -181,3 +181,5 @@ color.Cyan("🔋 🚀 Server running at http://localhost:8080")
 
 
 ✅ **Registration Route : 23-Commit :**
+
+- [X] 23. Registering Users for events

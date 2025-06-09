@@ -11,10 +11,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwu
 ### test token
 POST http://localhost:8080/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDU3MDIxLCJ1c2VySWQiOjF9.CCGBwlLm92xQSgC1cAMpLyX5eCmhqsWN44LC-s9btqA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZ21haWwuY29tIiwiZXhwIjoxNzQ5NDYzNjg1LCJ1c2VySWQiOjF9.4uGoIqSfW3yUhEn-N9AvreedBvucLJRqQ06edi5GkqI
 
 {
-	"name": "Test-4",
+	"name": "Test-Event",
 	"description": "Test Description",
 	"location":"Chittogram,Bangladesh",
 	"date_time":"2025-05-01T15:30:00.00Z"
